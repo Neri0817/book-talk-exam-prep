@@ -3,22 +3,27 @@ const mongoose = require("mongoose");
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
+    minLength: 2,
     required: true,
   },
   author: {
     type: String,
+    minLength: 5,
     required: true,
   },
   image: {
     type: String,
+    validate: /https?:\/\//g,
     required: true,
   },
   bookReview: {
     type: String,
+    minLength: 10,
     required: true,
   },
   genre: {
     type: String,
+    minLength: 3,
     required: true,
   },
   stars: {

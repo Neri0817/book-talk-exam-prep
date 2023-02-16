@@ -20,6 +20,10 @@ exports.register = async (username, email, password, repeatPassword) => {
     throw new Error("User exists!");
   }
 
+  if (password.length < 3) {
+    throw new Error("Passwerd too short!");
+  }
+
   const hashedPassword = await bcrypt.hash(password, 10);
 
   await User.create({ username, email, password: hashedPassword });
