@@ -9,7 +9,7 @@ exports.findByEmail = (email) => User.findOne({ email });
 
 exports.register = async (username, email, password, repeatPassword) => {
   if (password !== repeatPassword) {
-    throw new Error("Passwerd missmatch");
+    throw new Error("Password missmatch");
   }
 
   const existingUser = await User.findOne({
